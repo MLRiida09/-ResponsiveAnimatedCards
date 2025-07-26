@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Crete+Round:ital@0;1&family=Nixie+One&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+* {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        } 
+
+        body {
+            font-family: 'Nixie One', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 10px;
+        }
+
+        .container {
+            display: flex;
+            width: 100vw;
+            max-width: 1200px;
+            height: 90vh;
+            min-height: 500px;
+            gap: 15px;
+            padding: 0 10px;
+        }
+
+        .panel {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100%;
+            border-radius: 30px;
+            color: #fff;
+            cursor: pointer;
+            flex: 0.5;
+            position: relative;
+            transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.7) 100%);
+            border-radius: 30px;
+            opacity: 0.8;
+            transition: opacity 0.7s ease;
+        }
+
+        .panel:hover::before {
+            opacity: 0.5;
+        }
+
+        .panel h3 {
+            font-size: clamp(18px, 4vw, 28px);
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            margin: 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.7s ease;
+            z-index: 2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .panel.active {
+            flex: 5;
+            transform: scale(1.02);
+        }
+
+        .panel.active::before {
+            opacity: 0.3;
+        }
+
+        .panel.active h3 {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.7s ease 0.4s;
+        }
+
+        /* Card backgrounds with beautiful gradients as fallback */
+        .panel:nth-child(1) {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24),
+                url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
+        }
+
+        .panel:nth-child(2) {
+            background: linear-gradient(45deg, #4ecdc4, #44a08d),
+                url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
+        }
+
+        .panel:nth-child(3) {
+            background: linear-gradient(45deg, #45b7d1, #96c93d),
+                url('https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
+        }
+
+        .panel:nth-child(4) {
+            background: linear-gradient(45deg, #f093fb, #f5576c),
+                url('https://images.unsplash.com/photo-1501594907352-04cda38ebc29?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
+        }
+
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+
+            .container {
+                flex-direction: column;
+                width: 100vw;
+                height: 100vh;
+                gap: 10px;
+                padding: 5px;
+            }
+
+            .panel {
+                flex: 1;
+                min-height: 120px;
+                border-radius: 20px;
+                transition: all 0.5s ease;
+            }
+
+            .panel.active {
+                flex: 3;
+                transform: scale(1.01);
+            }
+
+            .panel h3 {
+                font-size: clamp(16px, 5vw, 22px);
+                bottom: 15px;
+                left: 20px;
+            }
+
+            .panel::before {
+                border-radius: 20px;
+            }
+        }
+
+        /* Ultra small screens */
+        @media (max-width: 480px) {
+            .container {
+                gap: 8px;
+                padding: 3px;
+            }
+
+            .panel {
+                min-height: 100px;
+                border-radius: 15px;
+            }
+
+            .panel h3 {
+                bottom: 10px;
+                left: 15px;
+                font-size: clamp(14px, 4vw, 18px);
+            }
+
+            .panel::before {
+                border-radius: 15px;
+            }
+        }
+
+        /* Landscape mobile */
+        @media (max-width: 768px) and (orientation: landscape) {
+            .container {
+                flex-direction: row;
+                height: 100vh;
+            }
+
+            .panel {
+                min-height: auto;
+            }
+        }
+
+        /* Tablet adjustments */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .container {
+                height: 85vh;
+                gap: 12px;
+            }
+
+            .panel h3 {
+                font-size: clamp(20px, 3vw, 24px);
+            }
+        }
+
+        /* Large screens */
+        @media (min-width: 1400px) {
+            .container {
+                max-width: 1400px;
+                height: 85vh;
+            }
+
+            .panel h3 {
+                font-size: 32px;
+                bottom: 40px;
+                left: 40px;
+            }
+        }
+
+        /* Accessibility improvements */
+        .panel:focus {
+            outline: 3px solid #fff;
+            outline-offset: 2px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .panel,
+            .panel h3,
+            .panel::before {
+                transition: none;
+            }
+        }
+
+        /* Loading animation */
+        .panel {
+            animation: slideIn 0.8s ease forwards;
+        }
+
+        .panel:nth-child(1) { animation-delay: 0.1s; }
+        .panel:nth-child(2) { animation-delay: 0.2s; }
+        .panel:nth-child(3) { animation-delay: 0.3s; }
+        .panel:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
