@@ -33,6 +33,20 @@ A sleek and interactive card layout using HTML, CSS, and JavaScript. This projec
 - Font Awesome Icons
 
 
+## 💡 Description:
+This project showcases interactive cards with smooth animations and a clean layout. The design is fully responsive and ideal for presenting services, products, or portfolio items.
+
+
+## 🔗 Live Demo (GitHub Pages):
+[View the Project Live](https://mlriida09.github.io/-ResponsiveAnimatedCards/)
+
+## 📁 Repository Link:
+[View the Code on GitHub](https://github.com/MLRiida09/-ResponsiveAnimatedCards)
+
+## 🧑‍💻 Created by:
+**Rida Mellal**
+
+
 
 
 
